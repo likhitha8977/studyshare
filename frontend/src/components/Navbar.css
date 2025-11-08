@@ -1,0 +1,144 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #dd62ee;
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navbar-brand:hover {
+  color: #dbeafe;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: #dbeafe;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-user {
+  color: #dbeafe;
+  font-size: 0.875rem;
+  margin: 0 0.5rem;
+}
+
+.navbar-btn {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+}
+
+.navbar-btn-login {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+.navbar-btn-login:hover {
+  background-color: #17a6ca;
+}
+
+.navbar-btn-register {
+  background-color: #059669;
+  color: white;
+}
+
+.navbar-btn-register:hover {
+  background-color: #047857;
+}
+
+.navbar-btn-logout {
+  background-color: #1d4ed8;
+  color: white;
+}
+
+.navbar-btn-logout:hover {
+  background-color: #1e40af;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar-menu {
+    gap: 0.5rem;
+  }
+
+  .navbar-link {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .navbar-btn {
+    padding: 0.375rem 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .navbar-user {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+
+  .navbar-brand {
+    font-size: 1.125rem;
+  }
+
+  .navbar-menu {
+    gap: 0.25rem;
+  }
+
+  .navbar-link {
+    padding: 0.25rem 0.375rem;
+    font-size: 0.75rem;
+  }
+
+  .navbar-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
