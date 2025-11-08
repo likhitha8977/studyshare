@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
   const login = async (email, password) => {
     dispatch({ type: "LOADING" });
     try {
-      const response = await api.post("/auth/login", { email, password });
+      const response = await api.post("/api/auth/login", { email, password });
       dispatch({ type: "LOGIN_SUCCESS", payload: response.data });
       return response.data;
     } catch (error) {
@@ -66,7 +66,7 @@ export function AuthProvider({ children }) {
   const register = async (name, email, password) => {
     dispatch({ type: "LOADING" });
     try {
-      const response = await api.post("/auth/register", {
+      const response = await api.post("/api/auth/register", {
         name,
         email,
         password,
