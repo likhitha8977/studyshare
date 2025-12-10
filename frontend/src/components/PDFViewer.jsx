@@ -13,13 +13,17 @@ export default function PDFViewer({ pdfUrl, maxPages = 10 }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Debug logging
+  console.log("📄 PDFViewer props:", { pdfUrl, maxPages });
+
   function onDocumentLoadSuccess({ numPages }) {
+    console.log("✅ PDF loaded successfully:", { numPages, pdfUrl });
     setNumPages(numPages);
     setLoading(false);
   }
 
   function onDocumentLoadError(error) {
-    console.error("Error loading PDF:", error);
+    console.error("❌ Error loading PDF:", { error, pdfUrl });
     setError("Failed to load PDF. Please try again.");
     setLoading(false);
   }
