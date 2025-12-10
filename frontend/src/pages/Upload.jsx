@@ -47,16 +47,42 @@ export default function Upload() {
     uploadData.append("price", formData.price);
 
     try {
-      await api.post("/notes/upload", uploadData, {
-        headers: { "Content-Type": "multipart/form-data" },
+      // Debug logging
+      console.log("Starting upload...", {
+        file: file?.name,
+        size: file?.size,
+        subject: formData.subject,
+        apiUrl: import.meta.env.VITE_API_URL,
       });
 
+      // Don't set Content-Type header - let browser handle it
+      await api.post("/notes/upload", uploadData);
+
+      console.log("Upload successful!");
       setSuccess(true);
       setTimeout(() => {
         navigate("/notes");
       }, 2000);
     } catch (err) {
-      setError(err.response?.data?.message || "Upload failed");
+      console.error("Upload error:", {
+        status: err.response?.status,
+        statusText: err.response?.statusText,
+        data: err.response?.data,
+        message: err.message,
+      });
+
+      let errorMessage = "Upload failed";
+      if (err.response?.status === 401) {
+        errorMessage = "Please login to upload notes";
+      } else if (err.response?.status === 413) {
+        errorMessage = "File too large. Please select a smaller PDF";
+      } else if (err.response?.data?.message) {
+        errorMessage = err.response.data.message;
+      } else if (err.message.includes("Network Error")) {
+        errorMessage = "Network error. Please check your connection";
+      }
+
+      setError(errorMessage);
     } finally {
       setUploading(false);
     }
