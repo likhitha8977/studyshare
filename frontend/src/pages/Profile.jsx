@@ -35,7 +35,7 @@ export default function Profile() {
   const fetchUserNotes = async () => {
     try {
       setLoading(true);
-      const response = await api.get("/notes");
+      const response = await api.get("/api/notes");
 
       // Filter notes uploaded by current user
       const myNotes = response.data.notes.filter(
@@ -75,7 +75,7 @@ export default function Profile() {
     }
 
     try {
-      await api.delete(`/notes/${noteId}`);
+      await api.delete(`/api/notes/${noteId}`);
       alert("Note deleted successfully!");
       fetchUserNotes(); // Refresh the list
     } catch (error) {

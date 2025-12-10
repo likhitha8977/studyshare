@@ -56,7 +56,7 @@ export default function Upload() {
       });
 
       // Don't set Content-Type header - let browser handle it
-      await api.post("/notes/upload", uploadData);
+      await api.post("/api/notes/upload", uploadData);
 
       console.log("Upload successful!");
       setSuccess(true);

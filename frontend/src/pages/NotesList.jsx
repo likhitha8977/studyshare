@@ -43,7 +43,7 @@ export default function NotesList() {
       if (filters.faculty) params.append("faculty", filters.faculty);
       if (filters.year) params.append("year", filters.year);
 
-      const response = await api.get(`/notes?${params.toString()}`);
+      const response = await api.get(`/api/notes?${params.toString()}`);
       setNotes(response.data.notes);
     } catch (error) {
       console.error("Failed to fetch notes:", error);
@@ -71,7 +71,7 @@ export default function NotesList() {
 
   const handleDownload = async (noteId) => {
     try {
-      const response = await api.get(`/notes/${noteId}/download`, {
+      const response = await api.get(`/api/notes/${noteId}/download`, {
         responseType: "blob",
       });
 
@@ -109,7 +109,7 @@ export default function NotesList() {
 
     setSubmittingRating(true);
     try {
-      await api.post(`/notes/${ratingNote._id}/rate`, {
+      await api.post(`/api/notes/${ratingNote._id}/rate`, {
         rating: userRating,
         review: userReview,
       });

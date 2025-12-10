@@ -27,7 +27,7 @@ export default function NoteDetail() {
 
   const fetchNote = async () => {
     try {
-      const response = await api.get(`/notes/${id}`);
+      const response = await api.get(`/api/notes/${id}`);
       setNote(response.data);
     } catch (error) {
       console.error("Failed to fetch note:", error);
@@ -51,7 +51,7 @@ export default function NoteDetail() {
 
     setSubmittingRating(true);
     try {
-      await api.post(`/notes/${id}/rate`, { rating, review });
+      await api.post(`/api/notes/${id}/rate`, { rating, review });
       alert("Rating submitted successfully!");
       fetchNote(); // Refresh note data
       setRating(0);
@@ -65,7 +65,7 @@ export default function NoteDetail() {
 
   const handleDownload = async () => {
     try {
-      const response = await api.get(`/notes/${id}/download`, {
+      const response = await api.get(`/api/notes/${id}/download`, {
         responseType: "blob",
       });
 

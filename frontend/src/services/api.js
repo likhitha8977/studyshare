@@ -1,9 +1,9 @@
 import axios from "axios";
 
-// ✅ Make sure this includes /api
+// ✅ Base URL without /api suffix (routes will add /api/auth, /api/notes, etc.)
 const API_BASE_URL =
   import.meta.env.VITE_API_URL ||
-  "https://studyshare-backend-o9m7.onrender.com/api";
+  "https://studyshare-backend-o9m7.onrender.com";
 
 const api = axios.create({
   baseURL: API_BASE_URL,
