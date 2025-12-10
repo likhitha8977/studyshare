@@ -15,6 +15,7 @@ const corsOptions = {
     "http://localhost:5173",
     "http://localhost:3000",
     "https://enchanting-strudel-235ce6.netlify.app",
+    "https://gleaming-yeot-fb709a.netlify.app",
     process.env.FRONTEND_URL,
   ],
   credentials: true,
