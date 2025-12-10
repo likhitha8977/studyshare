@@ -6,7 +6,7 @@ import {
   ArrowLeftIcon,
 } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolidIcon } from "@heroicons/react/24/solid";
-import api from "../services/api";
+import api, { getPdfUrl } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PDFViewer from "../components/PDFViewer";
 
@@ -206,7 +206,7 @@ export default function NoteDetail() {
         <h2 className="text-xl font-semibold mb-4">📄 Document Preview</h2>
         <div className="bg-gray-50 rounded-lg p-4">
           <PDFViewer
-            pdfUrl={`http://localhost:5000${note.pdfPath}`}
+            pdfUrl={getPdfUrl(note.pdfPath)}
             maxPages={note.isPaid ? 5 : 10}
           />
           {note.isPaid && (

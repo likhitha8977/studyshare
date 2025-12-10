@@ -9,6 +9,11 @@ const api = axios.create({
   baseURL: API_BASE_URL,
 });
 
+// ✅ Helper function to get PDF URLs
+export const getPdfUrl = (pdfPath) => {
+  return `${API_BASE_URL}${pdfPath}`;
+};
+
 // ✅ Enhanced request interceptor with debugging
 api.interceptors.request.use((config) => {
   console.log("🚀 API Request:", {

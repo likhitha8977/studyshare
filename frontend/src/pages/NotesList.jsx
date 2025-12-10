@@ -6,7 +6,7 @@ import {
   ArrowDownTrayIcon,
 } from "@heroicons/react/24/outline";
 import { StarIcon as StarSolidIcon } from "@heroicons/react/24/solid";
-import api from "../services/api";
+import api, { getPdfUrl } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import PDFViewer from "../components/PDFViewer";
 import "./NotesList.css";
@@ -354,7 +354,7 @@ export default function NotesList() {
 
               <div className="preview-modal-body">
                 <PDFViewer
-                  pdfUrl={`http://localhost:5000${selectedNote.pdfPath}`}
+                  pdfUrl={getPdfUrl(selectedNote.pdfPath)}
                   maxPages={10}
                 />
               </div>
